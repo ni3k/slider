@@ -82,7 +82,7 @@
         default: -1
       },
       format: {
-        type: [Object, Function, Boolean],
+        type: [Object, Function, Boolean, Array],
         required: false,
         default: null,
       },

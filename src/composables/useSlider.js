@@ -65,7 +65,7 @@ export default function useSlider (props, context, dependencies)
     }
 
     if (format.value) {
-      defaultOptions.ariaFormat = tooltipFormat.value
+      // defaultOptions.ariaFormat = tooltipFormat.value
     }
 
     return defaultOptions

@@ -22,10 +22,17 @@ export default function useTooltip (props, context, dependencies)
       return { to: format.value }
     }
 
+    if (Array.isArray(format.value)) {
+      return format.value.map(f => ({ to: f }))
+    }
+
     return wnumb({...format.value})
   })
 
   const tooltipsFormat = computed(() => {
+    if (Array.isArray(tooltipFormat.value) && Array.isArray(value.value)) {
+      return value.value.map((v, i) => tooltipFormat.value[i] || tooltipFormat.value[0])
+    }
     return Array.isArray(value.value) ? value.value.map(v => tooltipFormat.value) : tooltipFormat.value
   })
 
@@ -56,7 +63,12 @@ export default function useTooltip (props, context, dependencies)
       if (tooltips[0]) {
         pools[0][0] = 0
         poolPositions[0][0] = positions[0]
-        poolValues[0][0] = tooltipFormat.value.to(parseFloat(values[0]))
+        console.log(tooltipFormat, "hola");
+        if (Array.isArray(tooltipFormat.value)) {
+          poolValues[0][0] = tooltipFormat.value[0].to(parseFloat(values[0]))
+        } else {
+          poolValues[0][0] = tooltipFormat.value.to(parseFloat(values[0]))
+        }
       }
 
       for (var i = 1; i < values.length; i++) {
@@ -69,7 +81,11 @@ export default function useTooltip (props, context, dependencies)
 
         if (tooltips[i]) {
           pools[atPool].push(i)
-          poolValues[atPool].push(tooltipFormat.value.to(parseFloat(values[i])))
+          if (Array.isArray(tooltipFormat.value)) {
+            poolValues[atPool].push(tooltipFormat.value[i].to(parseFloat(values[i])))
+          } else {
+            poolValues[atPool].push(tooltipFormat.value.to(parseFloat(values[i])))
+          }
           poolPositions[atPool].push(positions[i])
         }
       }
