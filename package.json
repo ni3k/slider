@@ -12,7 +12,7 @@
   "style": "./themes/default.css",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vueform/slider.git"
+    "url": "git+https://github.com/ni3k/slider.git"
   },
   "bugs": {
     "url": "https://github.com/vueform/slider/issues"
