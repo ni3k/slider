@@ -1,6 +1,6 @@
 {
-  "name": "@vueform/slider",
-  "version": "2.1.7",
+  "name": "@ni3k/vueform-slider",
+  "version": "1.0.1-elnino",
   "private": false,
   "description": "Vue 3 slider component with multihandles, tooltips merging and formatting.",
   "license": "MIT",
@@ -12,7 +12,10 @@
   "style": "./themes/default.css",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vueform/slider.git"
+    "url": "https://github.com/ni3k/slider"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "bugs": {
     "url": "https://github.com/vueform/slider/issues"
