@@ -63,7 +63,6 @@ export default function useTooltip (props, context, dependencies)
       if (tooltips[0]) {
         pools[0][0] = 0
         poolPositions[0][0] = positions[0]
-        console.log(tooltipFormat, "hola");
         if (Array.isArray(tooltipFormat.value)) {
           poolValues[0][0] = tooltipFormat.value[0].to(parseFloat(values[0]))
         } else {
