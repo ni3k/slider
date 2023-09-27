@@ -112,6 +112,11 @@ export default function useTooltip (props, context, dependencies)
             tooltips[handleNumber].style.display = 'block'
             tooltips[handleNumber].style[direction] = offset + '%'
 
+            tooltips[handleNumber].classList.remove('slider-tooltip--merged');
+            if (poolValues[poolIndex].length > 1) {
+              tooltips[handleNumber].classList.add('slider-tooltip--merged');
+            }
+
             classList.value.tooltipHidden.split(' ').forEach((c) => {
               if (tooltips[handleNumber].classList.contains(c)) {
                 tooltips[handleNumber].classList.remove(c)
