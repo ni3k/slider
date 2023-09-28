@@ -117,7 +117,7 @@ export default function useSlider (props, context, dependencies)
     slider$.value = nouislider.create(slider.value, Object.assign({}, defaultOptions.value, options.value))
 
     if (tooltips.value && isRange.value && merge.value >= 0) {
-      tooltipsMerge(slider.value, merge.value, ' - ')
+      tooltipsMerge(slider.value, merge.value, ' <br /> ')
     }
 
     slider$.value.on('set', () => {
